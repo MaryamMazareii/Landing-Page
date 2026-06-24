@@ -1,0 +1,1702 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Yekan Bakh", "IRANSans", "Tahoma", sans-serif;
+    direction: rtl;
+    background: #fbfaff;
+    color: #151126;
+    line-height: 1.8;
+  }
+
+  h1, h2, h3, h4, h5, h6, strong, b {
+    font-weight: 600 !important;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .nevisa-page {
+    --primary: #6d35ff;
+    --primary-dark: #351486;
+    --primary-soft: #efe9ff;
+    --dark: #0f0b24;
+    --text: #151126;
+    --muted: #6f6a80;
+    --border: #e9e3f7;
+    --white: #ffffff;
+    --shadow: 0 24px 70px rgba(62, 27, 132, 0.12);
+    position: relative;
+    overflow: visible !important;
+    background:
+      radial-gradient(circle at top right, rgba(109, 53, 255, 0.12), transparent 32%),
+      radial-gradient(circle at 15% 18%, rgba(109, 53, 255, 0.08), transparent 25%),
+      #fbfaff;
+  }
+
+  .container {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.86);
+    border-bottom: 1px solid rgba(233, 227, 247, 0.9);
+  }
+
+  .nav {
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+    font-size: 26px;
+    color: var(--dark);
+  }
+
+  .brand-icon {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .brand-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    color: #3b3450;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .nav-links a {
+    transition: 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary);
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 0 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 800;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    color: #fff;
+    background: linear-gradient(135deg, #733cff, #4d22c8);
+    box-shadow: 0 14px 28px rgba(109, 53, 255, 0.25);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 38px rgba(109, 53, 255, 0.34);
+  }
+
+  .btn-outline {
+    color: var(--dark);
+    background: #fff;
+    border-color: var(--border);
+  }
+
+  .btn-outline:hover {
+    color: var(--primary);
+    border-color: rgba(109, 53, 255, 0.35);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 72px 0 44px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.95fr;
+    gap: 55px;
+    align-items: center;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    background: var(--primary-soft);
+    border: 1px solid rgba(109, 53, 255, 0.16);
+    padding: 7px 13px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 900;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    margin: 0;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.35;
+    letter-spacing: -1.2px;
+    color: var(--dark);
+  }
+
+  .hero h1 span {
+    color: var(--primary);
+  }
+
+  .hero p {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 650px;
+    margin: 22px 0 0;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+
+  .trust-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    color: #6f6a80;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .trust-row span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .hero-visual {
+    position: relative;
+  }
+
+  .network-glow {
+    position: absolute;
+    inset: -40px;
+    background: radial-gradient(circle, rgba(109,53,255,0.16), transparent 55%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .chatbot-image-card {
+    position: relative;
+    z-index: 2;
+    border-radius: 28px;
+    padding: 10px;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.9), rgba(239,233,255,0.75)),
+      linear-gradient(135deg, rgba(109,53,255,0.24), rgba(255,255,255,0));
+    border: 1px solid rgba(109, 53, 255, 0.18);
+    box-shadow: 0 34px 90px rgba(31, 12, 76, 0.18);
+    overflow: hidden;
+  }
+
+  .chatbot-image-card::before {
+    content: "";
+    position: absolute;
+    inset: -80px;
+    background:
+      radial-gradient(circle at top right, rgba(109,53,255,0.22), transparent 34%),
+      radial-gradient(circle at bottom left, rgba(109,53,255,0.12), transparent 28%);
+    z-index: 0;
+  }
+
+  .chatbot-image-frame {
+    position: relative;
+    z-index: 2;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #111114;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .chatbot-image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Logo strip */
+  .logo-strip {
+    padding: 18px 0 34px;
+  }
+
+  .logo-title {
+    text-align: center;
+    color: #5f596e;
+    font-weight: 900;
+    margin-bottom: 22px;
+  }
+
+  .logos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    align-items: center;
+  }
+
+  .logo-box {
+    height: 72px;
+    background: rgba(255,255,255,0.72);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    color: #9a92ac;
+    font-weight: 900;
+    filter: grayscale(1);
+  }
+
+  /* Sections */
+  .section {
+    padding: 54px 0;
+  }
+
+  .section-head {
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto 34px;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-size: clamp(26px, 3vw, 40px);
+    color: var(--dark);
+    line-height: 1.45;
+  }
+
+  .section-head h2 span {
+    color: var(--primary);
+  }
+
+  .section-head p {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .feature-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 28px 22px;
+    box-shadow: 0 16px 45px rgba(42, 18, 96, 0.05);
+    transition: 0.25s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(42, 18, 96, 0.1);
+    border-color: rgba(109, 53, 255, 0.25);
+  }
+
+  .icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: var(--primary-soft);
+    color: var(--primary);
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+    margin-bottom: 18px;
+  }
+
+  .feature-card h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: var(--dark);
+  }
+
+  .feature-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .pricing-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pricing-list li {
+    position: relative;
+    padding-right: 20px;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .pricing-list li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    color: #10b981;
+    font-weight: 900;
+    font-size: 11px;
+  }
+
+  /* Why */
+  .why-box {
+    display: grid;
+    grid-template-columns: 0.9fr 1fr;
+    gap: 28px;
+    align-items: center;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 34px;
+    box-shadow: var(--shadow);
+  }
+
+  .cube-visual {
+    min-height: 330px;
+    border-radius: 24px;
+    background:
+      radial-gradient(circle at center, rgba(109, 53, 255, 0.16), transparent 42%),
+      linear-gradient(135deg, #fbfaff, #fff);
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cube {
+    width: 150px;
+    height: 150px;
+    transform: rotate(45deg);
+    background: linear-gradient(135deg, #7c47ff, #2b126b);
+    border-radius: 28px;
+    box-shadow: 0 30px 60px rgba(109, 53, 255, 0.32);
+    position: relative;
+  }
+
+  .cube::before,
+  .cube::after {
+    content: "";
+    position: absolute;
+    inset: 22px;
+    border-radius: 22px;
+    border: 2px solid rgba(255,255,255,0.45);
+  }
+
+  .orbit {
+    position: absolute;
+    width: 78%;
+    height: 62%;
+    border: 1px dashed rgba(109, 53, 255, 0.28);
+    border-radius: 50%;
+  }
+
+  .why-content h2 {
+    font-size: clamp(25px, 3vw, 38px);
+    margin: 0 0 16px;
+    color: var(--dark);
+  }
+
+  .why-content p {
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .why-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #40394f;
+    font-weight: 800;
+  }
+
+  .check {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--primary);
+    color: #fff;
+    flex: 0 0 auto;
+    font-size: 13px;
+  }
+
+  /* Steps */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .step {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 28px 22px;
+    min-height: 190px;
+  }
+
+  .step-num {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 900;
+    margin-bottom: 18px;
+  }
+
+  .step h3 {
+    margin: 0 0 8px;
+    color: var(--dark);
+    font-size: 17px;
+  }
+
+  .step p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  /* Use cases */
+  .usecases {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  .usecase {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 14px 38px rgba(44, 20, 98, 0.05);
+  }
+
+  .use-img {
+    height: 105px;
+    background:
+      linear-gradient(135deg, rgba(109,53,255,0.18), rgba(255,255,255,0.6)),
+      radial-gradient(circle at 30% 30%, rgba(109,53,255,0.24), transparent 40%);
+    display: grid;
+    place-items: center;
+    font-size: 42px;
+  }
+
+  .usecase-content {
+    padding: 16px;
+  }
+
+  .usecase h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+    color: var(--dark);
+  }
+
+  .usecase p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  /* FAQ */
+  .faq-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  details {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px 22px;
+  }
+
+  summary {
+    cursor: pointer;
+    font-weight: 900;
+    color: var(--dark);
+  }
+
+  details p {
+    color: var(--muted);
+    margin: 12px 0 0;
+    font-size: 14px;
+  }
+
+  /* CTA */
+  .final-cta {
+    margin: 20px auto 70px;
+    border-radius: 28px;
+    padding: 40px 48px;
+    background: rgba(109, 53, 255, 0.18);
+    color: var(--dark);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .final-cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(109, 53, 255, 0.15);
+    border: 1px solid rgba(109, 53, 255, 0.25);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .final-cta h2 {
+    margin: 0 0 12px;
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 1.5;
+    color: var(--dark);
+    position: relative;
+  }
+  .final-cta h2 span {
+    color: var(--primary);
+  }
+  .final-cta p {
+    margin: 0 0 28px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+    position: relative;
+  }
+  .final-cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .final-cta .btn {
+    background: var(--primary);
+    color: #fff;
+    min-width: 170px;
+  }
+  .final-cta .btn-outline-white {
+    color: var(--primary);
+    background: transparent;
+    border-color: rgba(109, 53, 255, 0.35);
+  }
+  .final-cta .btn-outline-white:hover {
+    background: rgba(109, 53, 255, 0.08);
+    border-color: rgba(109, 53, 255, 0.5);
+    color: var(--primary);
+  }
+
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-16px); }
+  }
+  @keyframes floatWide {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(12px, -18px); }
+  }
+  @keyframes pulseDot {
+    0%, 100% { opacity: .3; transform: scale(1); }
+    50% { opacity: .8; transform: scale(1.6); }
+  }
+  @keyframes typingCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  @keyframes messageIn {
+    from { opacity: 0; transform: translateY(16px) scale(.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes spinSlow {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Floating feature tags */
+  .hero-feature-tag {
+    position: absolute;
+    z-index: 5;
+    padding: 6px 14px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(109, 53, 255, 0.15);
+    color: var(--dark);
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(62, 27, 132, 0.08);
+  }
+  .hero-feature-tag--1 { top: 5%; right: -8%; animation: floatWide 9s ease-in-out infinite; }
+  .hero-feature-tag--2 { bottom: 18%; left: -10%; animation: floatWide 10s ease-in-out infinite 3s; }
+
+  /* Hero Mini Chat */
+  .hero-mini-chat {
+    position: relative;
+    z-index: 3;
+    margin-top: 20px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 16px 45px rgba(42, 18, 96, 0.08);
+    max-width: 440px;
+  }
+  .hero-mini-chat-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-mini-chat-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .hero-mini-chat-name {
+    color: var(--dark);
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .hero-mini-chat-status {
+    color: #10b981;
+    font-size: 11px;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .hero-mini-chat-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: pulseDot 2s ease-in-out infinite;
+  }
+  .hero-mini-chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 100px;
+  }
+  .hero-chat-msg {
+    display: flex;
+    flex-direction: column;
+    max-width: 85%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    line-height: 1.7;
+    animation: messageIn .4s ease both;
+  }
+  .hero-chat-msg--user {
+    align-self: flex-end;
+    background: var(--primary-soft);
+    color: var(--dark);
+    border-bottom-left-radius: 4px;
+  }
+  .hero-chat-msg--ai {
+    align-self: flex-start;
+    background: #f5f3ff;
+    color: var(--text);
+    border-bottom-right-radius: 4px;
+  }
+  .typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 13px;
+    background: var(--primary);
+    margin-right: 2px;
+    animation: typingCursor .7s step-end infinite;
+    vertical-align: text-bottom;
+  }
+  .hero-mini-chat-input-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 10px;
+    padding: 5px 5px 5px 14px;
+    background: #f5f3ff;
+    border: none;
+    border-radius: 28px;
+  }
+  .hero-mini-chat-input {
+    flex: 1;
+    padding: 8px 0;
+    border: none !important;
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 12px;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .hero-mini-chat-input:focus,
+  .hero-mini-chat-input:active {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .hero-mini-chat-input::placeholder {
+    color: var(--muted);
+  }
+  .hero-mini-chat-send {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: transparent;
+    color: #555 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .hero-mini-chat-send:focus,
+  .hero-mini-chat-send:active {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .hero-mini-chat-send svg {
+    stroke: #555 !important;
+  }
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Demo Section */
+  .demo-section {
+    padding: 54px 0;
+    background:
+      radial-gradient(circle at top right, rgba(109, 53, 255, 0.08), transparent 32%),
+      radial-gradient(circle at bottom left, rgba(109, 53, 255, 0.05), transparent 28%),
+      #fbfaff;
+  }
+  .demo-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .demo-chat-frame {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .demo-chat-topbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    background: #faf9ff;
+  }
+  .demo-chat-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .demo-chat-agent {
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .demo-chat-status {
+    color: #10b981;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .demo-chat-status::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: pulseDot 2s ease-in-out infinite;
+  }
+  .demo-chat-body {
+    padding: 20px;
+    min-height: 280px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .demo-msg {
+    max-width: 82%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.7;
+    animation: messageIn .45s ease both;
+  }
+  .demo-msg--user {
+    align-self: flex-end;
+    background: var(--primary-soft);
+    color: var(--dark);
+    border-bottom-left-radius: 4px;
+  }
+  .demo-msg--ai {
+    align-self: flex-start;
+    background: #f5f3ff;
+    color: var(--text);
+    border-bottom-right-radius: 4px;
+  }
+  .demo-msg .typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 13px;
+    background: var(--primary);
+    margin-right: 2px;
+    animation: typingCursor .7s step-end infinite;
+    vertical-align: text-bottom;
+  }
+  .demo-tool-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    padding: 8px 14px;
+    border-radius: 14px;
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    animation: messageIn .4s ease both;
+  }
+  .demo-tool-spin {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid rgba(109, 53, 255, 0.2);
+    border-top-color: var(--primary);
+    animation: spinSlow .8s linear infinite;
+  }
+  .demo-scenario-tabs {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .nevisa-page .demo-scenario-tab {
+    padding: 8px 16px;
+    border-radius: 18px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #000 !important;
+    border: 1px solid var(--border);
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+  }
+  .nevisa-page .demo-scenario-tab:hover {
+    color: var(--primary) !important;
+    border-color: rgba(109, 53, 255, 0.3);
+  }
+  .nevisa-page .demo-scenario-tab.active {
+    color: #fff !important;
+    border-color: var(--primary);
+    background: var(--primary);
+  }
+  .demo-file-chip {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 16px;
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 700;
+    align-self: flex-end;
+    margin-bottom: 2px;
+  }
+
+  @media (max-width: 1100px) {
+    .hero-grid,
+    .why-box {
+      grid-template-columns: 1fr;
+    }
+
+    .features-grid,
+    .steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .usecases {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .logos {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero-feature-tag { font-size: 11px; padding: 4px 10px; }
+    .hero-feature-tag--1 { top: 3%; right: -4%; }
+    .hero-feature-tag--2 { bottom: 15%; left: -5%; }
+  }
+
+  @media (max-width: 760px) {
+    .container {
+      width: min(100% - 24px, 1180px);
+    }
+
+    .nav {
+      height: auto;
+      padding: 16px 0;
+      align-items: flex-start;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .nav-actions {
+      gap: 7px;
+    }
+
+    .btn {
+      min-height: 42px;
+      padding: 0 15px;
+      font-size: 12px;
+    }
+
+    .hero {
+      padding-top: 42px;
+    }
+
+    .hero-grid {
+      gap: 32px;
+    }
+
+    .features-grid,
+    .steps,
+    .usecases,
+    .logos {
+      grid-template-columns: 1fr;
+    }
+
+    .why-box {
+      padding: 22px;
+    }
+
+    .final-cta {
+      padding: 36px 22px;
+    }
+
+    .hero-feature-tag { display: none; }
+    .hero-mini-chat { max-width: 100%; }
+    .demo-scenario-tab { padding: 6px 12px; font-size: 11px; }
+  }
+</style>
+
+<div class="nevisa-page">
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="brand-icon"><img alt="نویسا" src="https://chat.nevisa.co/img/brand/favicon.png"></span>
+        نویسا
+      </a>
+
+      <nav class="nav-links">
+        <a href="#hero">خانه</a>
+        <a href="#features">قابلیت‌ها</a>
+        <a href="#why">استقرار اختصاصی</a>
+        <a href="#pricing">تعرفه‌ها</a>
+        <a href="#faq">سوالات متداول</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-outline" href="https://chat.nevisa.co/">ورود</a>
+        <a class="btn btn-primary" href="https://chat.nevisa.co/">شروع رایگان</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+          <div class="eyebrow">✨ نسل جدید هوش مصنوعی — چندزبانه و هوشمند</div>
+
+          <h1>
+            <span>نویسا؛</span> دستیار هوشمند چندزبانه برای گفت‌وگو، تحلیل و تولید محتوا
+          </h1>
+
+          <p>
+            نویسا نسل جدید چت‌بات‌های هوش مصنوعی است — برای گفت‌وگویی هوشمند، سریع و کاربردی طراحی شده.
+            از پاسخ به سوالات روزمره تا تولید محتوا و حل مسائل، نویسا همیشه کنار شماست.
+            نخستین چت‌بات ایرانی با قابلیت <strong>استقرار روی سرور سازمان</strong> — بدون نیاز به اینترنت، با امنیت کامل.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://chat.nevisa.co/">همین حالا رایگان شروع کنید</a>
+            <a class="btn btn-outline" href="#demo">مشاهده پیش‌نمایش ↓</a>
+          </div>
+
+          <div class="trust-row">
+            <span>✓ بدون نیاز به کارت بانکی</span>
+            <span>✓ رابط دو زبانه فارسی و انگلیسی</span>
+            <span>✓ قابلیت استقرار روی سرور سازمان</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+
+          <span class="hero-feature-tag hero-feature-tag--1">⚙ تولید تصاویر باکیفیت</span>
+          <span class="hero-feature-tag hero-feature-tag--2">📄 تحلیل PDF، Word و متن</span>
+
+          <div aria-hidden="true" class="hero-mini-chat">
+            <div class="hero-mini-chat-top">
+              <span class="hero-mini-chat-avatar"><img alt="نویسا" src="https://chat.nevisa.co/img/brand/favicon.png" style="width:100%;height:100%;display:block;border-radius:8px;"></span>
+              <span class="hero-mini-chat-name">نویسا</span>
+              <span class="hero-mini-chat-status"><span class="hero-mini-chat-status-dot"></span>آنلاین</span>
+            </div>
+            <div class="hero-mini-chat-messages" id="heroChatMessages"></div>
+            <div class="hero-mini-chat-input-row">
+              <input class="hero-mini-chat-input" disabled="" placeholder="پیام خود را بنویسید..." readonly="" type="text">
+              <button aria-label="ارسال" class="hero-mini-chat-send" disabled="">
+                <svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><line x1="22" x2="11" y1="2" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="logo-strip">
+      <div class="container">
+        <div class="logo-title">مورد اعتماد برای استفاده شخصی، آموزشی و سازمانی</div>
+
+        <div class="logos">
+          <div class="logo-box">آموزش</div>
+          <div class="logo-box">کسب‌وکار</div>
+          <div class="logo-box">محتوا</div>
+          <div class="logo-box">فروشگاه</div>
+          <div class="logo-box">توسعه‌دهنده</div>
+          <div class="logo-box">سازمان</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section" id="demo">
+      <div class="container">
+        <div class="section-head">
+          <h2>نویسا را <span>در عمل ببینید</span></h2>
+          <p>یک گفتگوی واقعی با نویسا — از پرسش و پاسخ ساده تا تحلیل فایل و جستجوی وب. روی هر سناریو کلیک کنید.</p>
+        </div>
+
+        <div class="demo-wrapper">
+          <div class="demo-chat-frame">
+            <div class="demo-chat-topbar">
+              <div class="demo-chat-avatar"><img alt="نویسا" src="https://chat.nevisa.co/img/brand/favicon.png" style="width:100%;height:100%;display:block;border-radius:10px;"></div>
+              <span class="demo-chat-agent">نویسا</span>
+              <span class="demo-chat-status">آنلاین</span>
+            </div>
+            <div class="demo-chat-body" id="demoChatBody"></div>
+            <div class="hero-mini-chat-input-row" style="margin:4px 14px 12px;">
+              <input class="hero-mini-chat-input" disabled="" placeholder="پیام خود را بنویسید..." readonly="" type="text">
+              <button aria-label="ارسال" class="hero-mini-chat-send" disabled="">
+                <svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><line x1="22" x2="11" y1="2" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </div>
+          </div>
+          <div class="demo-scenario-tabs" id="demoScenarioTabs">
+            <button class="demo-scenario-tab active" data-scenario="0">💬 گفتگوی فارسی</button>
+            <button class="demo-scenario-tab" data-scenario="1">📄 تحلیل فایل</button>
+            <button class="demo-scenario-tab" data-scenario="2">🌐 جستجوی وب</button>
+            <button class="demo-scenario-tab" data-scenario="3">🎨 تولید تصویر</button>
+            <button class="demo-scenario-tab" data-scenario="4">💻 تولید کد</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+
+        <div class="section-head">
+          <h2>هر آنچه برای مکالمه هوشمند نیاز دارید در <span>یک پلتفرم</span></h2>
+          <p>
+            نویسا با بهره‌گیری از چندین مدل هوش مصنوعی، ابزاری کامل برای پرسش‌وپاسخ، تولید محتوا، تحلیل اسناد، و مکالمه تخصصی در اختیار شما می‌گذارد.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="icon">🏢</div>
+            <h3>استقرار روی سرور سازمان</h3>
+            <p>نویسا را روی سرورهای داخلی سازمان خود نصب کنید و بدون نیاز به اینترنت از هوش مصنوعی استفاده کنید.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">📄</div>
+            <h3>پردازش فایل و اسناد</h3>
+            <p>آپلود و تحلیل فایل‌های PDF، Word و متن. نویسا محتوای اسناد شما را استخراج کرده و بر اساس آن‌ها به سوالاتتان پاسخ دقیق می‌دهد.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">🌐</div>
+            <h3>جستجوی هوشمند وب</h3>
+            <p>دسترسی به اطلاعات به‌روز از سطح وب. نویسا می‌تواند اینترنت را جستجو کند و پاسخ‌های خود را بر اساس جدیدترین اخبار و اطلاعات ارائه دهد.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">🎨</div>
+            <h3>تولید تصویر با هوش مصنوعی</h3>
+            <p>خلق تصاویر اختصاصی تنها با توصیف شما. از ایده تا تصویر، همه در یک گفتگو. مناسب برای تولید محتوا، طراحی مفهومی، و ایده‌پردازی بصری.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="container">
+
+        <div class="why-box">
+          <div class="demo-chat-frame" style="max-width:360px;margin:0 auto;">
+            <div class="demo-chat-topbar">
+              <div class="demo-chat-avatar"><img decoding="async" alt="نویسا" src="https://chat.nevisa.co/img/brand/favicon.png" style="width:100%;height:100%;display:block;border-radius:10px;"></div>
+              <span class="demo-chat-agent">نویسا</span>
+            </div>
+            <div class="demo-chat-body" style="min-height:180px;max-height:240px;">
+              <div class="demo-msg demo-msg--user">آیا می‌تونم نویسا رو روی سرور سازمان خودم نصب کنم؟</div>
+              <div class="demo-msg demo-msg--ai">بله! نویسا تنها چت‌بات هوش مصنوعی ایرانی است که قابلیت <strong>استقرار اختصاصی روی سرور داخلی</strong> سازمان شما رو داره — بدون نیاز به اینترنت، با امنیت کامل و کنترل مطلق بر داده‌ها.</div>
+              <div class="demo-msg demo-msg--user">یعنی داده‌ها از سازمان خارج نمیشه؟</div>
+              <div class="demo-msg demo-msg--ai">دقیقاً! تمام مکالمات، فایل‌ها و پردازش‌ها در شبکه داخلی شما باقی می‌مونه. هیچ داده‌ای به بیرون منتقل نمیشه — مناسب برای سازمان‌های حساس و شبکه‌های امن.</div>
+            </div>
+            <div class="hero-mini-chat-input-row">
+              <input class="hero-mini-chat-input" disabled="" placeholder="پیام خود را بنویسید..." readonly="" type="text">
+              <button aria-label="ارسال" class="hero-mini-chat-send" disabled="">
+                <svg fill="none" height="14" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14"><line x1="22" x2="11" y1="2" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="why-content">
+            <h2  style="font-size: 30px;"> هوش مصنوعی روی سرور خودتان، بدون اینترنت</h2>
+            <p>
+              نویسا تنها چت‌بات هوش مصنوعی ایرانی است که می‌توانید آن را روی سرورهای داخلی سازمان خود مستقر کنید. بدون نیاز به اینترنت، با امنیت کامل و کنترل مطلق بر داده‌ها.
+            </p>
+
+            <div class="why-list">
+              <div class="why-item">
+                <span class="check">✓</span>
+                <span>استقرار در محل — نصب روی سرورهای فیزیکی یا ابری سازمان شما، بدون وابستگی به هیچ سرویس خارجی</span>
+              </div>
+
+              <div class="why-item">
+                <span class="check">✓</span>
+                <span>امنیت مطلق داده — هیچ داده‌ای از سازمان خارج نمی‌شود. تمام مکالمات، فایل‌ها و پردازش‌ها در شبکه داخلی شما باقی می‌ماند</span>
+              </div>
+
+              <div class="why-item">
+                <span class="check">✓</span>
+                <span>بدون نیاز به اینترنت — در شبکه ایزوله و بدون اتصال به اینترنت کار می‌کند. مناسب برای سازمان‌های حساس و شبکه‌های امن</span>
+              </div>
+
+              <div class="why-item">
+                <span class="check">✓</span>
+                <span>سفارشی‌سازی کامل — مدل‌ها، رابط کاربری و قابلیت‌ها متناسب با نیاز سازمان شما تنظیم و بهینه‌سازی می‌شوند</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="section" id="usecases">
+      <div class="container">
+
+        <div class="section-head">
+          <h2>نویسا برای چه کسانی مناسب است؟</h2>
+          <p>برای هر کسی که می‌خواهد سریع‌تر فکر کند، بهتر بنویسد و حرفه‌ای‌تر کار کند.</p>
+        </div>
+
+        <div class="usecases">
+          <div class="usecase">
+            <div class="use-img">🏢</div>
+            <div class="usecase-content">
+              <h3>سازمان‌ها</h3>
+              <p>استقرار اختصاصی روی سرور داخلی، خودکارسازی پاسخ‌ها و تحلیل داده.</p>
+            </div>
+          </div>
+
+          <div class="usecase">
+            <div class="use-img">💼</div>
+            <div class="usecase-content">
+              <h3>کسب‌وکارها</h3>
+              <p>تولید متن فروش، پشتیبانی، ایمیل و محتوای بازاریابی.</p>
+            </div>
+          </div>
+
+          <div class="usecase">
+            <div class="use-img">👨‍💻</div>
+            <div class="usecase-content">
+              <h3>توسعه‌دهندگان</h3>
+              <p>کمک در نوشتن کد، توضیح خطا، ساخت مستندات و پروژه‌های اشتراکی.</p>
+            </div>
+          </div>
+
+          <div class="usecase">
+            <div class="use-img">🎬</div>
+            <div class="usecase-content">
+              <h3>تولیدکنندگان محتوا</h3>
+              <p>سناریو، کپشن، ایده محتوا، تصویرسازی با AI و متن‌های تبلیغاتی.</p>
+            </div>
+          </div>
+
+          <div class="usecase">
+            <div class="use-img">🎓</div>
+            <div class="usecase-content">
+              <h3>دانشجویان</h3>
+              <p>خلاصه‌سازی، تحقیق، یادگیری و نوشتن مطالب علمی به فارسی و انگلیسی.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+
+        <div class="section-head">
+          <h2>پلن متناسب با نیازتان را <span>انتخاب کنید</span></h2>
+          <p>از شروع رایگان تا پلن‌های حرفه‌ای. همه پلن‌ها شامل دسترسی به چت، تحلیل فایل، و جستجوی وب هستند.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="icon">🚀</div>
+            <h3>نویسا — رایگان</h3>
+            <ul class="pricing-list">
+              <li>۵۰٬۰۰۰ توکن در روز</li>
+              <li>۱ آپلود فایل در روز</li>
+              <li>۱ تصویر در روز</li>
+              <li>جستجوی وب</li>
+              <li>تم تیره/روشن</li>
+            </ul>
+            <p style="color:var(--muted);font-size:13px;margin-top:10px;">همیشه رایگان — بدون نیاز به کارت بانکی</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">⭐</div>
+            <h3>نویسا پلاس — ۱۸۹٬۰۰۰ تومان</h3>
+            <ul class="pricing-list">
+              <li>۱۰۰٬۰۰۰ توکن در روز</li>
+              <li>۱۰ آپلود فایل همزمان</li>
+              <li>۱۰ تصویر در روز</li>
+              <li>جستجوی وب</li>
+              <li>حالت تفکر عمیق</li>
+              <li>تبدیل صوت به متن</li>
+            </ul>
+            <p style="color:var(--muted);font-size:13px;margin-top:10px;">پرطرفدارترین پلن برای کاربران حرفه‌ای</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">👑</div>
+            <h3>نویسا پرو — ۴۸۹٬۰۰۰ تومان</h3>
+            <ul class="pricing-list">
+              <li>۲۰۰٬000 توکن در روز</li>
+              <li>۲۰ آپلود فایل همزمان</li>
+              <li>۲۰ تصویر در روز</li>
+              <li>جستجوی وب نامحدود</li>
+              <li>تفکر عمیق + صوت به متن</li>
+              <li>پروژه‌های اشتراکی</li>
+              <li>پشتیبانی اولویت‌دار</li>
+            </ul>
+          </div>
+
+          <div class="feature-card">
+            <div class="icon">🏗️</div>
+            <h3>سازمانی — تماس بگیرید</h3>
+            <ul class="pricing-list">
+              <li>تمام قابلیت‌های پرو بدون محدودیت</li>
+              <li>توکن‌های سفارشی</li>
+              <li>استقرار در محل (On-Premise)</li>
+              <li>یکپارچه‌سازی با سیستم‌های داخلی</li>
+              <li>مدیریت تیم و دسترسی‌ها</li>
+              <li>پشتیبانی اختصاصی ۲۴/۷</li>
+              <li>SLA تضمینی</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+
+        <div class="section-head">
+          <h2>سوالات متداول</h2>
+          <p>پاسخ به پرتکرارترین سوالات درباره نویسا. اگر سوال دیگری دارید، با ما تماس بگیرید.</p>
+        </div>
+
+        <div class="faq-wrap">
+
+          <div class="faq-list">
+            <details>
+              <summary>نویسا چه فرقی با ChatGPT داره؟</summary>
+              <p>نویسا رابطی دو زبانه (فارسی و انگلیسی) دارد و به هر زبانی پاسخ می‌دهد. از تقویم شمسی پشتیبانی می‌کند و با درک عمیق از فرهنگ و زبان فارسی، تجربه‌ای روان برای کاربران ایرانی فراهم کرده — در عین حال برای غیرفارسی‌زبان‌ها نیز کاملاً قابل استفاده است. همچنین سازمان‌ها می‌توانند نویسا را به صورت اختصاصی روی سرورهای داخلی خود مستقر کنند و بدون نیاز به اینترنت از آن استفاده کنند.</p>
+            </details>
+
+            <details>
+              <summary>آیا نویسا رایگانه؟</summary>
+              <p>بله! پلن رایگان نویسا شامل ۵۰٬۰۰۰ توکن در روز، ۱ آپلود فایل و ۱ تصویر است — کاملاً رایگان و بدون نیاز به کارت بانکی. برای استفاده حرفه‌ای‌تر، پلن‌های پلاس (۱۸۹ هزار تومان) و پرو (۴۸۹ هزار تومان) در دسترس هستند.</p>
+            </details>
+
+            <details>
+              <summary>آیا می‌تونم فایل آپلود کنم؟</summary>
+              <p>بله! نویسا از آپلود فایل‌های PDF، Word (DOCX)، فایل‌های متنی، تصاویر، ویدئو و فایل‌های صوتی MP3 پشتیبانی می‌کند. محتوای فایل شما استخراج و تحلیل شده و نویسا بر اساس آن به سوالاتتان پاسخ می‌دهد.</p>
+            </details>
+
+            <details>
+              <summary>اطلاعات من در نویسا امنیت داره؟</summary>
+              <p>کاملاً. تمام ارتباطات با نویسا رمزنگاری شده (HTTPS) است. مکالمات شما محرمانه هستند و هیچ داده‌ای بدون اجازه شما با شخص ثالث به اشتراک گذاشته نمی‌شود. ما از زیرساخت امن برای حفاظت از اطلاعات کاربران استفاده می‌کنیم.</p>
+            </details>
+
+            <details>
+              <summary>چطور می‌تونم پلم رو ارتقا بدم؟</summary>
+              <p>از طریق پنل کاربری نویسا در بخش «ارتقا پلن» می‌توانید پلن خود را انتخاب و از طریق درگاه پرداخت امن زرین‌پال یا مایکت پرداخت کنید. پس از پرداخت، پلن شما بلافاصله فعال می‌شود.</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="final-cta">
+          <div class="final-cta-badge">🚀 همین امروز شروع کنید</div>
+          <h2>آماده‌اید هوش مصنوعی را به زبان خودتان تجربه کنید؟</h2>
+          <p>همین حالا ثبت‌نام کنید و از پلن رایگان نویسا استفاده کنید. بدون نیاز به کارت بانکی، بدون تعهد. کمتر از یک دقیقه.</p>
+          <div class="final-cta-actions">
+            <a class="btn" href="https://chat.nevisa.co/">شروع رایگان در نویسا</a>
+            <a class="btn btn-outline-white" href="tel:+989164929597">تماس برای مشاوره</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<script>
+(function() {
+  var root = document.querySelector('.nevisa-page');
+  if (!root) return;
+
+  // ── HERO MINI CHAT AUTO-PLAY ──────────────────────────────────────
+  var heroChat = root.querySelector('#heroChatMessages');
+  var heroScenarios = [
+    {
+      messages: [
+        { type: 'user', text: 'سلام! می‌تونی یه متن معرفی کوتاه برای کسب‌وکارم به فارسی بنویسی؟' },
+        { type: 'ai', text: 'سلام! البته. لطفاً بفرمایید کسب‌وکار شما در چه زمینه‌ای هست و چه لحنی مد نظرتون هست — رسمی، دوستانه یا تبلیغاتی؟', typing: true }
+      ]
+    },
+    {
+      messages: [
+        { type: 'user', text: 'تفاوت DNA و RNA رو به زبان ساده توضیح بده.' },
+        { type: 'ai', text: 'حتماً! به زبان ساده:\n\nDNA مثل کتابخانه دائمی سلول هست که اطلاعات ژنتیکی رو ذخیره می‌کنه — دو رشته‌ای و بسیار پایدار.\n\nRNA مثل یه کپی موقت از یه بخش DNA عمل می‌کنه — تک رشته‌ای و وظیفش انتقال پیام برای ساخت پروتئین‌هاست.\n\nخلاصه: DNA بایگانی دائمی، RNA پیک موقت.', typing: true }
+      ]
+    },
+    {
+      messages: [
+        { type: 'user', text: 'یه شعر کوتاه به سبک حافظ درباره بهار بنویس.' },
+        { type: 'ai', text: 'نسیم صبحدم آمد، نوید وصل یار آورد\nز باغ دل، شکوفه‌های عشق را بی‌قرار آورد\n\nبهار آمد، بهار آمد، زمین از خواب برخاست\nهزاران غنچه نادیده، به شوق روی یار آورد', typing: true }
+      ]
+    }
+  ];
+
+  var heroScenarioIdx = 0;
+  var heroStep = 0;
+  var heroAutoTimer = null;
+  var HERO_SCENARIO_DISPLAY = 5000;
+  var HERO_TYPING_SPEED = 35;
+
+  function heroRunScenario() {
+    if (heroStep === 0) { heroChat.innerHTML = ''; }
+    var scenario = heroScenarios[heroScenarioIdx];
+    if (heroStep < scenario.messages.length) {
+      var msg = scenario.messages[heroStep];
+      heroAddMessage(msg);
+      heroStep++;
+      var delay = msg.typing ? (msg.text.length * HERO_TYPING_SPEED) + 600 : 1200;
+      heroAutoTimer = setTimeout(heroRunScenario, delay);
+    } else {
+      heroAutoTimer = setTimeout(function() {
+        heroStep = 0;
+        heroScenarioIdx = (heroScenarioIdx + 1) % heroScenarios.length;
+        heroRunScenario();
+      }, HERO_SCENARIO_DISPLAY);
+    }
+  }
+
+  function heroAddMessage(msg) {
+    var div = document.createElement('div');
+    div.className = 'hero-chat-msg hero-chat-msg--' + msg.type;
+    if (msg.type === 'ai' && msg.typing) {
+      div.textContent = '';
+      heroChat.appendChild(div);
+      heroTypeText(div, msg.text, 0);
+    } else {
+      div.textContent = msg.text;
+      heroChat.appendChild(div);
+    }
+  }
+
+  function heroTypeText(el, text, i) {
+    if (i < text.length) {
+      el.textContent = text.substring(0, i + 1);
+      var cursor = document.createElement('span');
+      cursor.className = 'typing-cursor';
+      el.appendChild(cursor);
+      heroAutoTimer = setTimeout(function() { heroTypeText(el, text, i + 1); }, HERO_TYPING_SPEED);
+    } else {
+      var cur = el.querySelector('.typing-cursor');
+      if (cur) cur.remove();
+    }
+  }
+
+  heroRunScenario();
+
+  // ── DEMO CHAT ─────────────────────────────────────────────────────
+  var demoBody = root.querySelector('#demoChatBody');
+  var demoTabs = root.querySelector('#demoScenarioTabs');
+  var demoActiveScenario = 0;
+  var demoPlaying = false;
+  var demoTimeout = null;
+
+  var demoScenarios = [
+    {
+      steps: [
+        { type: 'user', text: 'سلام نویسا! هوش مصنوعی چطور می‌تونه توی آموزش و یادگیری به ما کمک کنه؟' },
+        { type: 'ai', text: 'سلام! خوشحالم که سوال مفیدی می‌پرسی. هوش مصنوعی می‌تونه از چند راه به یادگیری کمک کنه:\n\n۱. شخصی‌سازی آموزش — تطبیق محتوا با سطح و سرعت یادگیری هر فرد\n۲. پاسخ به سوالات در لحظه — مثل یه معلم خصوصی ۲۴ ساعته\n۳. خلاصه‌سازی و تحلیل متون — کمک به درک سریع‌تر مطالب\n۴. تمرین و ارزیابی — طراحی سوالات و تمرین‌های متناسب با موضوع\n\nنویسا می‌تونه توی همه این موارد به فارسی کمکت کنه!', typing: true },
+        { type: 'user', text: 'جالبه! می‌تونی فصل ۵ کتاب زیست‌شناسی دوازدهم رو برام خلاصه کنی؟' },
+        { type: 'ai', text: 'برای خلاصه‌سازی دقیق، بهتره فایل کتاب رو آپلود کنی تا من بتونم بر اساس متن واقعی پاسخ بدم. با این حال، فصل ۵ زیست دوازدهم معمولاً درباره "حواس" هست — شامل ساختار چشم، گوش، گیرنده‌های حسی، و مکانیسم انتقال پیام عصبی.\n\nاگر فایلش رو آپلود کنی، می‌تونم خلاصه دقیق‌تری برات بنویسم!', typing: true }
+      ]
+    },
+    {
+      steps: [
+        { type: 'user', text: 'این فایل PDF قرارداد رو برام تحلیل کن و نکات مهمش رو بگو.', attachment: 'قرارداد-همکاری.pdf' },
+        { type: 'file', text: 'در حال تحلیل PDF...', attachment: 'قرارداد-همکاری.pdf' },
+        { type: 'ai', text: 'فایل قرارداد شما رو بررسی کردم. نکات کلیدی:\n\n۱. مدت قرارداد ۱۲ ماهه با تمدید خودکار\n۲. مبلغ قرارداد به صورت اقساط ۳ ماهه پرداخت می‌شه\n۳. بند ۷ (فسخ قرارداد) نیاز به اخطار ۳۰ روزه داره\n۴. مالکیت معنوی: حقوق آثار تولیدی متعلق به کارفرماست\n۵. جریمه تأخیر: ۲٪ مبلغ قرارداد به ازای هر روز\n\nتوصیه می‌کنم بند ۷ و ۱۲ رو دقیق‌تر مطالعه کنید.', typing: true }
+      ]
+    },
+    {
+      steps: [
+        { type: 'user', text: 'آخرین اخبار هوش مصنوعی در سال ۲۰۲۶ رو برام بگو.' },
+        { type: 'tool', text: '🔍 در حال جستجوی وب...' },
+        { type: 'ai', text: 'بر اساس آخرین جستجوی وب، مهم‌ترین اخبار هوش مصنوعی در ۲۰۲۶:\n\n۱. مدل‌های جدید Claude 4 با قابلیت استدلال چندمرحله‌ای\n۲. گسترش مدل‌های متن‌باز توسط متا و مایکروسافت\n۳. پیشرفت در ترجمه ماشینی برای زبان‌های کم‌منبع مثل فارسی\n۴. یکپارچه‌سازی AI با ابزارهای روزمره — از ایمیل تا IDE\n\nمنبع: وبسایت‌های معتبر فناوری (ژوئن ۲۰۲۶)', typing: true }
+      ]
+    },
+    {
+      steps: [
+        { type: 'user', text: 'یه تصویر از "باغ ایرانی در غروب بهار، با حوض فیروزه‌ای و درختان سرو" بساز.' },
+        { type: 'ai', text: 'چشم! در حال ساخت تصویر با این مشخصات:\n\n"Persian garden at spring sunset, turquoise reflecting pool, tall cypress trees, golden light, traditional Persian architecture in background, watercolor style"\n\nتصویر شما آماده شد:', typing: false },
+        { type: 'image', text: '' },
+        { type: 'user', text: 'وااای چقدر قشنگ شد! می‌تونی یه توضیح هم براش بنویسی برای اینستاگرام؟' },
+        { type: 'ai', text: 'حتماً! اینم یه کپشن برای اینستاگرام:\n\n"بهشت روی زمین، همین جاست. 🌅\nباغ ایرانی در آغوش غروب بهار... جایی که آب و نور و سرو قصه‌ای ازلی رو روایت می‌کنن.\n\nاین تصویر رو با کمک هوش مصنوعی ساختم — شما چه حسی بهش دارید؟\n\n#باغ_ایرانی #هنر_ایرانی #هوش_مصنوعی #نویسا"', typing: true }
+      ]
+    },
+    {
+      steps: [
+        { type: 'user', text: 'یه تابع PHP بنویس که اعداد یک آرایه رو به حروف فارسی تبدیل کنه. مثلاً ۴۵ بشه "چهل و پنج".' },
+        { type: 'ai', text: 'حتماً! این تابع اعداد تا ۹۹۹ رو به حروف فارسی تبدیل می‌کنه:\n\n```php\nfunction numberToPersianWords($num) {\n    $ones = ["", "یک", "دو", "سه", "چهار", "پنج", "شش", "هفت", "هشت", "نه"];\n    $tens = ["", "ده", "بیست", "سی", "چهل", "پنجاه", "شصت", "هفتاد", "هشتاد", "نود"];\n    $teens = ["ده", "یازده", "دوازده", "سیزده", "چهارده", "پانزده", "شانزده", "هفده", "هجده", "نوزده"];\n    $hundreds = ["", "صد", "دویست", "سیصد", "چهارصد", "پانصد", "ششصد", "هفتصد", "هشتصد", "نهصد"];\n\n    if ($num == 0) return "صفر";\n    $result = "";\n    if ($num >= 100) {\n        $result .= $hundreds[intdiv($num, 100)] . " ";\n        $num %= 100;\n    }\n    if ($num >= 10 && $num <= 19) {\n        $result .= $teens[$num - 10];\n        return trim($result);\n    }\n    if ($num >= 10) {\n        $result .= $tens[intdiv($num, 10)] . " ";\n        $num %= 10;\n    }\n    if ($num > 0) $result .= "و " . $ones[$num];\n    return trim($result);\n}\n```\n\nنتیجه: `numberToPersianWords(45)` برمی‌گردونه "چهل و پنج".', typing: true }
+      ]
+    }
+  ];
+
+  function runDemoScenario(idx) {
+    demoActiveScenario = idx;
+    demoPlaying = true;
+    demoBody.innerHTML = '';
+
+    var scenario = demoScenarios[idx];
+    var delay = 0;
+
+    scenario.steps.forEach(function(step) {
+      delay += 400;
+      doDemoStep(step, delay);
+    });
+
+    delay += 400;
+    demoTimeout = setTimeout(function() {
+      demoPlaying = false;
+    }, delay + 300);
+  }
+
+  function doDemoStep(step, delay) {
+    setTimeout(function() {
+      if (step.type === 'tool') {
+        var toolDiv = document.createElement('div');
+        toolDiv.className = 'demo-tool-row';
+        toolDiv.innerHTML = '<div class="demo-tool-spin"></div>' + step.text;
+        demoBody.appendChild(toolDiv);
+      } else if (step.type === 'image') {
+        var imgDiv = document.createElement('div');
+        imgDiv.style.cssText = 'width:120px;height:120px;border-radius:14px;align-self:flex-start;background:linear-gradient(135deg,#a78bfa33,#7c3aed33);border:1px dashed rgba(109,53,255,.4);display:flex;align-items:center;justify-content:center;font-size:2rem;animation:messageIn .45s ease both;';
+        imgDiv.textContent = '🖼️';
+        demoBody.appendChild(imgDiv);
+      } else if (step.type === 'file') {
+        var fileDiv = document.createElement('div');
+        fileDiv.className = 'demo-tool-row';
+        fileDiv.textContent = '📄 ' + step.text;
+        demoBody.appendChild(fileDiv);
+        if (step.attachment) {
+          var chip = document.createElement('div');
+          chip.className = 'demo-file-chip';
+          chip.textContent = '📎 ' + step.attachment;
+          demoBody.appendChild(chip);
+        }
+      } else {
+        var div = document.createElement('div');
+        div.className = 'demo-msg demo-msg--' + step.type;
+        if (step.attachment) {
+          div.innerHTML = step.text + '<br><span style="font-size:.7rem;color:var(--muted);margin-top:4px;display:inline-block;">📎 ' + step.attachment + '</span>';
+        } else if (step.typing) {
+          div.textContent = '';
+          demoBody.appendChild(div);
+          demoTypeText(div, step.text, 0);
+          return;
+        } else {
+          div.textContent = step.text;
+        }
+        demoBody.appendChild(div);
+      }
+      demoBody.scrollTop = demoBody.scrollHeight;
+    }, delay);
+  }
+
+  function demoTypeText(el, text, i) {
+    if (!demoPlaying) return;
+    if (i < text.length) {
+      el.textContent = text.substring(0, i + 1);
+      var cursor = document.createElement('span');
+      cursor.className = 'typing-cursor';
+      el.appendChild(cursor);
+      demoTimeout = setTimeout(function() { demoTypeText(el, text, i + 1); }, 25);
+    } else {
+      var cur = el.querySelector('.typing-cursor');
+      if (cur) cur.remove();
+    }
+  }
+
+  var tabButtons = demoTabs.querySelectorAll('.demo-scenario-tab');
+  tabButtons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var idx = parseInt(this.getAttribute('data-scenario'));
+      if (idx === demoActiveScenario && demoPlaying) return;
+      if (demoTimeout) clearTimeout(demoTimeout);
+      demoPlaying = false;
+      tabButtons.forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+      runDemoScenario(idx);
+    });
+  });
+
+  runDemoScenario(0);
+})();
+</script>
